@@ -28,92 +28,92 @@ const Welcome = ({ isCurrentSection, isDarkMode }) => {
     "Full Stack Dev": (
       <div className="grid grid-cols-3 gap-4">
         <img
-          src="/icons/git-plain-wordmark.svg"
+          src="/portfolio/icons/git-plain-wordmark.svg"
           alt="Git"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/html5-plain-wordmark.svg"
+          src="/portfolio/icons/html5-plain-wordmark.svg"
           alt="HTML5"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/css3-plain-wordmark.svg"
+          src="/portfolio/icons/css3-plain-wordmark.svg"
           alt="CSS3"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/javascript-plain.svg"
+          src="/portfolio/icons/javascript-plain.svg"
           alt="JavaScript"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/typescript-plain.svg"
+          src="/portfolio/icons/typescript-plain.svg"
           alt="TypeScript"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/vitejs-plain.svg"
+          src="/portfolio/icons/vitejs-plain.svg"
           alt="Vite"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/icons/ionic-original-wordmark.svg"
+          src="/portfolio/icons/ionic-original-wordmark.svg"
           alt="Ionic"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/react-original-wordmark.svg"
+          src="/portfolio/icons/react-original-wordmark.svg"
           alt="React"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/redux-original.svg"
+          src="/portfolio/icons/redux-original.svg"
           alt="Redux"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/nextjs-original-wordmark.svg"
+          src="/portfolio/icons/nextjs-original-wordmark.svg"
           alt="Next.js"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/icons/express-original-wordmark.svg"
+          src="/portfolio/icons/express-original-wordmark.svg"
           alt="Express"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/icons/amazonwebservices-original-wordmark.svg"
+          src="/portfolio/icons/amazonwebservices-original-wordmark.svg"
           alt="AWS"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/icons/nodejs-plain-wordmark.svg"
+          src="/portfolio/icons/nodejs-plain-wordmark.svg"
           alt="Node.js"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/postgresql-original-wordmark.svg"
+          src="/portfolio/icons/postgresql-original-wordmark.svg"
           alt="PostgreSQL"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/icons/dynamodb-original.svg"
+          src="/portfolio/icons/dynamodb-original.svg"
           alt="DynamoDB"
           className="h-16 w-auto"
         />
         <img
-          src="/icons/prisma-original-wordmark.svg"
+          src="/portfolio/icons/prisma-original-wordmark.svg"
           alt="Prisma"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/icons/tailwindcss-plain-wordmark.svg"
+          src="/portfolio/icons/tailwindcss-plain-wordmark.svg"
           alt="TailwindCSS"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/icons/postman-plain-wordmark.svg"
+          src="/portfolio/icons/postman-plain-wordmark.svg"
           alt="Postman"
           className="h-16 w-auto"
         />
@@ -337,8 +337,8 @@ const Welcome = ({ isCurrentSection, isDarkMode }) => {
         <img
           src={`${
             window.innerWidth <= 768
-              ? "/icons/swipe_vertical.svg"
-              : "/icons/scroll-down.svg"
+              ? "/portfolio/icons/swipe_vertical.svg"
+              : "/portfolio/icons/scroll-down.svg"
           }`}
           alt="Scroll down"
           className="w-16 md:w-10 h-auto"

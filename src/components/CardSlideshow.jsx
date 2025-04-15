@@ -10,17 +10,21 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
   const data = [
     {
       title: t("project_1_t"),
-      imgUrl: "/img/cv-editor-1.png",
+      imgUrl: "/portfolio/img/cv-editor-1.png",
       chips: (
         <>
           <Chip
-            icon="/icons/javascript-original.svg"
+            icon="/portfolio/icons/javascript-original.svg"
             text="JavaScript"
             bgColor="light"
           />
-          <Chip icon="/icons/react-original.svg" text="React" bgColor="light" />
           <Chip
-            icon="/icons/vitejs-plain.svg"
+            icon="/portfolio/icons/react-original.svg"
+            text="React"
+            bgColor="light"
+          />
+          <Chip
+            icon="/portfolio/icons/vitejs-plain.svg"
             text="Vite"
             bgColor="light"
             invertIcon={true}
@@ -33,29 +37,37 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
     },
     {
       title: t("project_2_t"),
-      imgUrl: `/img/linkeem-2-${isDarkMode ? "d" : "l"}.png`,
+      imgUrl: `/portfolio/img/linkeem-2-${isDarkMode ? "d" : "l"}.png`,
       chips: (
         <>
           <Chip
-            icon="/icons/typescript-original.svg"
+            icon="/portfolio/icons/typescript-original.svg"
             text="TypeScript"
             bgColor="light"
           />
-          <Chip icon="/icons/react-original.svg" text="React" bgColor="light" />
           <Chip
-            icon="/icons/express-original.svg"
+            icon="/portfolio/icons/react-original.svg"
+            text="React"
+            bgColor="light"
+          />
+          <Chip
+            icon="/portfolio/icons/express-original.svg"
             text="Express"
             bgColor="light"
             invertIcon={true}
           />
-          <Chip icon="/icons/ionic-original.svg" text="Ionic" bgColor="light" />
           <Chip
-            icon="/icons/postgresql-plain.svg"
+            icon="/portfolio/icons/ionic-original.svg"
+            text="Ionic"
+            bgColor="light"
+          />
+          <Chip
+            icon="/portfolio/icons/postgresql-plain.svg"
             text="PostgreSQL"
             bgColor="light"
           />
           <Chip
-            icon="/icons/prisma-original.svg"
+            icon="/portfolio/icons/prisma-original.svg"
             text="Prisma"
             bgColor="light"
             invertIcon={true}
@@ -68,38 +80,42 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
     },
     {
       title: t("project_3_t"),
-      imgUrl: "/img/sn8krs-1.png",
+      imgUrl: "/portfolio/img/sn8krs-1.png",
       chips: (
         <>
           <Chip
-            icon="/icons/typescript-original.svg"
+            icon="/portfolio/icons/typescript-original.svg"
             text="TypeScript"
             bgColor="light"
           />
           <Chip
-            icon="/icons/nextjs-original.svg"
+            icon="/portfolio/icons/nextjs-original.svg"
             text="Next.js"
             bgColor="light"
             invertIcon={true}
           />
           <Chip
-            icon="/icons/redux-original.svg"
+            icon="/portfolio/icons/redux-original.svg"
             text="Redux"
             bgColor="light"
             invertIcon={true}
           />
           <Chip
-            icon="/icons/amazonwebservices-original-wordmark.svg"
+            icon="/portfolio/icons/amazonwebservices-original-wordmark.svg"
             text="AWS"
             bgColor="light"
             invertIcon={true}
           />
           <Chip
-            icon="/icons/dynamodb-original.svg"
+            icon="/portfolio/icons/dynamodb-original.svg"
             text="DynamoDB"
             bgColor="light"
           />
-          <Chip icon="/icons/stripe.png" text="Stripe" bgColor="light" />
+          <Chip
+            icon="/portfolio/icons/stripe.png"
+            text="Stripe"
+            bgColor="light"
+          />
         </>
       ),
       description: t("project_3_d"),
@@ -112,26 +128,34 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
         <>
           {" "}
           <Chip
-            icon="/icons/typescript-original.svg"
+            icon="/portfolio/icons/typescript-original.svg"
             text="TypeScript"
             bgColor="light"
           />
-          <Chip icon="/icons/react-original.svg" text="React" bgColor="light" />
           <Chip
-            icon="/icons/vitejs-plain.svg"
+            icon="/portfolio/icons/react-original.svg"
+            text="React"
+            bgColor="light"
+          />
+          <Chip
+            icon="/portfolio/icons/vitejs-plain.svg"
             text="Vite"
             bgColor="light"
             invertIcon={true}
           />
           <Chip
-            icon="/icons/tailwindcss-original.svg"
+            icon="/portfolio/icons/tailwindcss-original.svg"
             text="TailwindCSS"
             bgColor="light"
           />
-          <Chip icon="/icons/tonejs.png" text="Tone.js" bgColor="light" />
+          <Chip
+            icon="/portfolio/icons/tonejs.png"
+            text="Tone.js"
+            bgColor="light"
+          />
         </>
       ),
-      imgUrl: "/img/jsWave-4.png",
+      imgUrl: "/portfolio/img/jsWave-4.png",
       description: t("project_4_d"),
       liveUrl: "https://ruizterce.github.io/jsWave/",
       repoUrl: "https://github.com/ruizterce/jsWave",
@@ -141,31 +165,39 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
       chips: (
         <>
           <Chip
-            icon="/icons/javascript-original.svg"
+            icon="/portfolio/icons/javascript-original.svg"
             text="JavaScript"
             bgColor="light"
           />
-          <Chip icon="/icons/react-original.svg" text="React" bgColor="light" />
           <Chip
-            icon="/icons/express-original.svg"
+            icon="/portfolio/icons/react-original.svg"
+            text="React"
+            bgColor="light"
+          />
+          <Chip
+            icon="/portfolio/icons/express-original.svg"
             text="Express"
             bgColor="light"
           />
-          <Chip icon="/icons/materialui-plain.svg" text="MUI" bgColor="light" />
           <Chip
-            icon="/icons/postgresql-plain.svg"
+            icon="/portfolio/icons/materialui-plain.svg"
+            text="MUI"
+            bgColor="light"
+          />
+          <Chip
+            icon="/portfolio/icons/postgresql-plain.svg"
             text="PostgreSQL"
             bgColor="light"
           />
           <Chip
-            icon="/icons/prisma-original.svg"
+            icon="/portfolio/icons/prisma-original.svg"
             text="Prisma"
             bgColor="light"
             invertIcon={true}
           />
         </>
       ),
-      imgUrl: "/img/blog-authors-1.png",
+      imgUrl: "/portfolio/img/blog-authors-1.png",
       description: t("project_5_d"),
       liveUrl: "",
       repoUrl: "https://github.com/ruizterce/blog-api",

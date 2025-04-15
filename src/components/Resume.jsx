@@ -30,9 +30,9 @@ const Resume = ({ isCurrentSection, isDarkMode }) => {
     <div className="h-screen w-screen bg-light text-dark flex flex-col items-center justify-center">
       <img
         onClick={openResume}
-        src={`/img/Cv 2025 ${currentLanguage === "en" ? "Eng" : "Esp"}-p${
-          isDarkMode ? "-dark" : ""
-        }.svg`}
+        src={`/portfolio/img/Cv 2025 ${
+          currentLanguage === "en" ? "Eng" : "Esp"
+        }-p${isDarkMode ? "-dark" : ""}.svg`}
         alt="resume"
         className={`absolute sm:h-2/3 sm:w-auto h-auto w-2/3 drop-shadow transition-all duration-500 hover:drop-shadow-primary hover:scale-[1.2] ${
           isDarkMode ? "border border-1px" : ""

@@ -3,20 +3,20 @@ import PropTypes from "prop-types";
 const SocialBar = ({ currentSectionIndex, isDarkMode }) => {
   const contactIcons = [
     {
-      icon: "/icons/github-original.svg",
+      icon: "/portfolio/icons/github-original.svg",
       onClick: () => window.open("https://github.com/ruizterce/"),
     },
     {
-      icon: "/icons/mail.svg",
+      icon: "/portfolio/icons/mail.svg",
       onClick: () => window.open("mailto:ruiz.terce@gmail.com"),
     },
     {
-      icon: "/icons/linkedin-plain.svg",
+      icon: "/portfolio/icons/linkedin-plain.svg",
       onClick: () =>
         window.open("https://www.linkedin.com/in/manuel-ruiz-tercedor/"),
     },
     {
-      icon: "/icons/discord-mark-black.svg",
+      icon: "/portfolio/icons/discord-mark-black.svg",
       onClick: () => window.open("https://discord.com/users/ruizterce"),
     },
   ];
