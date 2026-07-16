@@ -3,26 +3,26 @@ import PropTypes from "prop-types";
 const SocialBar = ({ currentSectionIndex, isDarkMode }) => {
   const contactIcons = [
     {
-      icon: "/portfolio/icons/github-original.svg",
-      onClick: () => window.open("https://github.com/ruizterce/"),
+      icon: "/icons/github-original.svg",
+      label: "GitHub",
+      onClick: () => window.open("https://github.com/xonin-hush"),
     },
     {
-      icon: "/portfolio/icons/mail.svg",
-      onClick: () => window.open("mailto:ruiz.terce@gmail.com"),
+      icon: "/icons/mail.svg",
+      label: "Email",
+      onClick: () => {
+        window.location.href = "mailto:xonindev@gmail.com";
+      },
     },
     {
-      icon: "/portfolio/icons/linkedin-plain.svg",
-      onClick: () =>
-        window.open("https://www.linkedin.com/in/manuel-ruiz-tercedor/"),
-    },
-    {
-      icon: "/portfolio/icons/discord-mark-black.svg",
-      onClick: () => window.open("https://discord.com/users/ruizterce"),
+      icon: "/icons/linkedin-plain.svg",
+      label: "LinkedIn",
+      onClick: () => window.open("https://www.linkedin.com/in/xonin/"),
     },
   ];
 
-  const isCol = currentSectionIndex === 0 || currentSectionIndex === 3; // Transform into column
-  const isContactSection = currentSectionIndex === 2; // Transform into contact section
+  const isCol = currentSectionIndex === 0 || currentSectionIndex === 4; // Transform into column
+  const isContactSection = currentSectionIndex === 3; // Transform into contact section
 
   // Function to get transform class for each button
   const getTransformClass = (index) => {
@@ -33,9 +33,7 @@ const SocialBar = ({ currentSectionIndex, isDarkMode }) => {
         case 1:
           return "-translate-x-16 sm:-translate-x-20 -translate-y-20 scale-[3] hover:scale-[4] active:scale-[2.5] drop-shadow-lg";
         case 2:
-          return "translate-x-16 sm:translate-x-20 translate-y-20 scale-[3] hover:scale-[4] active:scale-[2.5] drop-shadow-lg";
-        case 3:
-          return "-translate-x-16 sm:-translate-x-20 translate-y-20 scale-[3] hover:scale-[4] active:scale-[2.5] drop-shadow-lg";
+          return "-translate-x-5 sm:-translate-x-6 translate-y-20 scale-[3] hover:scale-[4] active:scale-[2.5] drop-shadow-lg";
         default:
           return "";
       }
@@ -45,8 +43,6 @@ const SocialBar = ({ currentSectionIndex, isDarkMode }) => {
           return "translate-y-10 translate-x-10 sm:translate-y-12 sm:translate-x-12";
         case 2:
           return "translate-y-10 sm:translate-y-12";
-        case 3:
-          return "translate-y-20 translate-x-10 sm:translate-y-24 sm:translate-x-12";
         default:
           return "";
       }
@@ -80,7 +76,7 @@ const SocialBar = ({ currentSectionIndex, isDarkMode }) => {
               className={`transition-all duration-700  ${
                 isDarkMode ? "invert" : ""
               }`}
-              alt={`icon-${index}`}
+              alt={button.label}
               style={{
                 filter:
                   "invert(48%) sepia(10%) saturate(279%) hue-rotate(342deg) brightness(89%) contrast(88%)",

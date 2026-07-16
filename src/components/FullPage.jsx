@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./NavBar";
 import Section from "./Section";
 import Topbar from "./TopBar";
+import useDarkMode from "../hooks/useDarkMode";
 import useScrollNavigation from "../hooks/useScrollNavigation";
 import Welcome from "./Welcome";
 import CardSlideshow from "./CardSlideshow";
@@ -9,12 +10,16 @@ import SocialBar from "./SocialBar";
 import Contact from "./Contact";
 import Resume from "./Resume";
 import CustomCursor from "./CustomCursor";
-const sections = ["Welcome", "Projects", "Contact", "Resume"];
+const sections = ["Welcome", "Projects", "Events", "Contact", "Resume"];
 
 const FullPage = () => {
-  const { currentSectionIndex, scrollToSection } =
-    useScrollNavigation(sections);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // A work detail page hands back the section it was opened from.
+  const { state } = useLocation();
+  const { currentSectionIndex, scrollToSection } = useScrollNavigation(
+    sections,
+    state?.section ?? 0
+  );
+  const [isDarkMode, setIsDarkMode] = useDarkMode();
 
   return (
     <div
@@ -43,14 +48,24 @@ const FullPage = () => {
         <CardSlideshow
           isCurrentSection={currentSectionIndex === 1}
           isDarkMode={isDarkMode}
+          category="work"
+          headingKey="navBar_2"
+        />
+      </Section>
+      <Section id="Events">
+        <CardSlideshow
+          isCurrentSection={currentSectionIndex === 2}
+          isDarkMode={isDarkMode}
+          category="event"
+          headingKey="navBar_3"
         />
       </Section>
       <Section id="Contact">
-        <Contact isCurrentSection={currentSectionIndex === 2} />
+        <Contact isCurrentSection={currentSectionIndex === 3} />
       </Section>
       <Section id="Resume">
         <Resume
-          isCurrentSection={currentSectionIndex === 3}
+          isCurrentSection={currentSectionIndex === 4}
           isDarkMode={isDarkMode}
         />
       </Section>

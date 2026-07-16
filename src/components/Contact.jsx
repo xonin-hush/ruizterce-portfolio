@@ -10,7 +10,7 @@ const Contact = ({ isCurrentSection }) => {
           isCurrentSection ? "" : "-translate-y-[3000px] scale-0 opacity-0"
         }`}
       >
-        {t("navBar_3")}
+        {t("navBar_4")}
       </h1>
       <span
         className={`text-medium transition-all duration-1000 select-all ${
@@ -19,7 +19,7 @@ const Contact = ({ isCurrentSection }) => {
             : "scale-0 opacity-0 -translate-y-16"
         }`}
       >
-        ruiz.terce@gmail.com
+        xonindev@gmail.com
       </span>
     </div>
   );

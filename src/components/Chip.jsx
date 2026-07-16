@@ -9,7 +9,8 @@ const Chip = ({ icon, text, bgColor, invertIcon }) => {
       {icon && (
         <img
           src={icon}
-          alt="icon"
+          alt=""
+          aria-hidden="true"
           className={`w-4 h-4 rounded-full object-cover ${
             invertIcon ? "darkTheme:invert" : ""
           }`}

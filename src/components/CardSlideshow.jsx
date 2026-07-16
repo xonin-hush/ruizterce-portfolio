@@ -1,208 +1,117 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow, Pagination, Mousewheel } from "swiper/modules";
+import { Link } from "react-router-dom";
 import Chip from "./Chip";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { getCaseStudy } from "../content/caseStudies";
 
-const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
+const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) => {
   const { t } = useTranslation();
+  // `slug` links each card to its case study in src/content/caseStudies.js,
+  // which is also where each card's Work/Events category lives.
   const data = [
     {
+      slug: "scanner-bridge",
       title: t("project_1_t"),
-      imgUrl: "/portfolio/img/cv-editor-1.png",
+      imgUrl: `/img/diagram-scanner-bridge-${isDarkMode ? "d" : "l"}.svg`,
       chips: (
         <>
           <Chip
-            icon="/portfolio/icons/javascript-original.svg"
-            text="JavaScript"
+            icon="/icons/python-original.svg"
+            text="Python"
             bgColor="light"
           />
           <Chip
-            icon="/portfolio/icons/react-original.svg"
-            text="React"
+            icon="/icons/javascript-plain.svg"
+            text="Vanilla JS"
             bgColor="light"
           />
-          <Chip
-            icon="/portfolio/icons/vitejs-plain.svg"
-            text="Vite"
-            bgColor="light"
-            invertIcon={true}
-          />
+          <Chip text="WebSockets" bgColor="light" />
+          <Chip text="TWAIN / WIA" bgColor="light" />
         </>
       ),
       description: t("project_1_d"),
-      liveUrl: "https://ruizterce-cv-editor.netlify.app/",
-      repoUrl: "https://github.com/ruizterce/cv-editor",
     },
     {
+      slug: "discover-mosul",
       title: t("project_2_t"),
-      imgUrl: `/portfolio/img/linkeem-2-${isDarkMode ? "d" : "l"}.png`,
+      imgUrl: `/img/diagram-discover-mosul-${isDarkMode ? "d" : "l"}.svg`,
       chips: (
         <>
           <Chip
-            icon="/portfolio/icons/typescript-original.svg"
-            text="TypeScript"
+            icon="/icons/astro-original.svg"
+            text="Astro"
             bgColor="light"
           />
           <Chip
-            icon="/portfolio/icons/react-original.svg"
-            text="React"
+            icon="/icons/laravel-original.svg"
+            text="Filament"
             bgColor="light"
           />
-          <Chip
-            icon="/portfolio/icons/express-original.svg"
-            text="Express"
-            bgColor="light"
-            invertIcon={true}
-          />
-          <Chip
-            icon="/portfolio/icons/ionic-original.svg"
-            text="Ionic"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/postgresql-plain.svg"
-            text="PostgreSQL"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/prisma-original.svg"
-            text="Prisma"
-            bgColor="light"
-            invertIcon={true}
-          />
+          <Chip text="Role-based auth" bgColor="light" />
         </>
       ),
       description: t("project_2_d"),
-      liveUrl: "https://linkeem.mooo.com",
-      repoUrl: "https://github.com/ruizterce/linkeem",
     },
     {
+      slug: "marshes-3d",
       title: t("project_3_t"),
-      imgUrl: "/portfolio/img/sn8krs-1.png",
+      imgUrl: "/img/marshes-boat.webp",
       chips: (
         <>
-          <Chip
-            icon="/portfolio/icons/typescript-original.svg"
-            text="TypeScript"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/nextjs-original.svg"
-            text="Next.js"
-            bgColor="light"
-            invertIcon={true}
-          />
-          <Chip
-            icon="/portfolio/icons/redux-original.svg"
-            text="Redux"
-            bgColor="light"
-            invertIcon={true}
-          />
-          <Chip
-            icon="/portfolio/icons/amazonwebservices-original-wordmark.svg"
-            text="AWS"
-            bgColor="light"
-            invertIcon={true}
-          />
-          <Chip
-            icon="/portfolio/icons/dynamodb-original.svg"
-            text="DynamoDB"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/stripe.png"
-            text="Stripe"
-            bgColor="light"
-          />
+          <Chip text="Photogrammetry" bgColor="light" />
+          <Chip text="Insta360 X5" bgColor="light" />
+          <Chip text="Interactive 3D" bgColor="light" />
         </>
       ),
       description: t("project_3_d"),
-      liveUrl: "https://eiozliays3.execute-api.eu-west-1.amazonaws.com/",
-      repoUrl: "https://github.com/ruizterce/sn8krs",
     },
     {
+      slug: "brandenburg-scan",
       title: t("project_4_t"),
+      imgUrl: "/img/brandenburg-cloister.webp",
       chips: (
         <>
-          {" "}
-          <Chip
-            icon="/portfolio/icons/typescript-original.svg"
-            text="TypeScript"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/react-original.svg"
-            text="React"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/vitejs-plain.svg"
-            text="Vite"
-            bgColor="light"
-            invertIcon={true}
-          />
-          <Chip
-            icon="/portfolio/icons/tailwindcss-original.svg"
-            text="TailwindCSS"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/tonejs.png"
-            text="Tone.js"
-            bgColor="light"
-          />
+          <Chip text="FARO Focus" bgColor="light" />
+          <Chip text="Laser scanning" bgColor="light" />
+          <Chip text="Point clouds" bgColor="light" />
         </>
       ),
-      imgUrl: "/portfolio/img/jsWave-4.png",
       description: t("project_4_d"),
-      liveUrl: "https://ruizterce.github.io/jsWave/",
-      repoUrl: "https://github.com/ruizterce/jsWave",
     },
     {
+      slug: "vr-gallery-potsdam",
       title: t("project_5_t"),
+      imgUrl: "/img/vr-gallery.webp",
       chips: (
         <>
-          <Chip
-            icon="/portfolio/icons/javascript-original.svg"
-            text="JavaScript"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/react-original.svg"
-            text="React"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/express-original.svg"
-            text="Express"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/materialui-plain.svg"
-            text="MUI"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/postgresql-plain.svg"
-            text="PostgreSQL"
-            bgColor="light"
-          />
-          <Chip
-            icon="/portfolio/icons/prisma-original.svg"
-            text="Prisma"
-            bgColor="light"
-            invertIcon={true}
-          />
+          <Chip text="VR" bgColor="light" />
+          <Chip text="AR" bgColor="light" />
+          <Chip text="3D content" bgColor="light" />
         </>
       ),
-      imgUrl: "/portfolio/img/blog-authors-1.png",
       description: t("project_5_d"),
-      liveUrl: "",
-      repoUrl: "https://github.com/ruizterce/blog-api",
+    },
+    {
+      slug: "qaf-testing",
+      title: t("project_6_t"),
+      imgUrl: `/img/diagram-qaf-testing-${isDarkMode ? "d" : "l"}.svg`,
+      chips: (
+        <>
+          <Chip text="Unit · Integration · E2E" bgColor="light" />
+          <Chip text="CI/CD" bgColor="light" />
+          <Chip text="Mocking" bgColor="light" />
+        </>
+      ),
+      description: t("project_6_d"),
     },
   ];
+
+  const cards = data.filter(
+    (card) => getCaseStudy(card.slug)?.category === category
+  );
 
   return (
     <div className="h-screen w-screen bg-light text-dark flex flex-col items-center justify-center">
@@ -211,7 +120,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
           isCurrentSection ? "" : "-translate-x-[1000px] opacity-0"
         }`}
       >
-        {t("navBar_2")}
+        {t(headingKey)}
       </h1>
       <div
         className={`w-full translate-y-10 transition-all duration-700 ease-in-out ${
@@ -220,10 +129,15 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
       >
         <Swiper
           effect={"coverflow"}
-          modules={[EffectCoverflow, Pagination]}
+          modules={[EffectCoverflow, Pagination, Mousewheel]}
+          // Two-finger trackpad swipe left/right flips through the cards.
+          // forceToAxis keeps it horizontal-only, so vertical scroll still
+          // pages between sections (see useScrollNavigation, which likewise
+          // yields horizontal intent to this carousel).
+          mousewheel={{ forceToAxis: true }}
           slidesPerView={"auto"}
           centeredSlides={true}
-          initialSlide={2}
+          initialSlide={Math.floor(cards.length / 2)}
           coverflowEffect={{
             rotate: 10,
             stretch: 0,
@@ -233,75 +147,45 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
             slideShadows: true,
           }}
         >
-          {data.map((project) => {
+          {cards.map((project) => {
             return (
               <SwiperSlide
-                key={project.title}
+                key={project.slug}
                 className="max-w-xs sm:max-w-sm max-h-full"
               >
-                <div className="swiper-slide-transform rounded-3xl bg-lightMild flex flex-col justify-center items-center ">
-                  <img
-                    src={project.imgUrl}
-                    className="object-cover object-top w-full h-[300px] sm:h-[420px] rounded-t-3xl"
-                  ></img>
+                {/* Swiper drives the coverflow `transform` on whichever element
+                    carries `swiper-slide-transform`, and animates it with an
+                    inline transition-duration. So this wrapper stays bare: any
+                    `transition-*` utility here would pin transition-property to
+                    something other than transform and the 3D tilt would snap
+                    instead of easing. The card's own transitions live inside. */}
+                <div className="swiper-slide-transform">
+                  <Link
+                    to={`/work/${project.slug}`}
+                    className="group rounded-3xl bg-lightMild flex flex-col justify-center items-center transition-[filter] duration-300 hover:drop-shadow-primary"
+                  >
+                    <img
+                      src={project.imgUrl}
+                      alt={project.title}
+                      className="object-cover object-top w-full h-[300px] sm:h-[420px] rounded-t-3xl"
+                    ></img>
 
-                  <div className="flex flex-wrap justify-center gap-2 mx-2 mt-2 sm:mx-4 sm:mt-4">
-                    {project.chips}
-                  </div>
-                  <div className="w-full flex flex-col items-center p-2">
-                    <a
-                      href={project.liveUrl ? project.liveUrl : null}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`py-1 px-4 font-nunito   ${
-                        project.liveUrl
-                          ? "bg-primary drop-shadow hover:scale-[1.05] hover:drop-shadow-primary active:shadow-none active:bg-medium active:scale-[0.9] font-black rounded-full transition-all duration-200"
-                          : ""
-                      }`}
-                    >
-                      <h1
-                        className={`text-3xl font-nunito font-extrabold px-3 ${
-                          project.liveUrl
-                            ? "text-lightMild text-shadow-sm shadow-gray-500 active:shadow-primary "
-                            : "text-primary"
-                        }`}
-                      >
+                    <div className="flex flex-wrap justify-center gap-2 mx-2 mt-2 sm:mx-4 sm:mt-4">
+                      {project.chips}
+                    </div>
+                    <div className="w-full flex flex-col items-center p-2">
+                      <h1 className="text-3xl font-nunito font-extrabold px-3 text-center text-primary">
                         {project.title}
                       </h1>
-                    </a>
 
-                    <h1 className="mb-2 font-light">{project.description}</h1>
-                    <div className="box-border flex w-5/6 mb-2 justify-around ">
-                      {project.liveUrl ? (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="py-1 px-4 font-nunito bg-primary drop-shadow hover:scale-[1.05] hover:drop-shadow-primary active:shadow-none active:bg-medium active:scale-[0.9] font-black rounded-full transition-all duration-200"
-                        >
-                          <span className="text-lightMild text-shadow-sm shadow-gray-500 active:shadow-primary">
-                            {t("live_site")}
-                          </span>
-                        </a>
-                      ) : (
-                        <></>
-                      )}
-                      {project.repoUrl ? (
-                        <a
-                          href={project.repoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="py-1 px-4 font-nunito bg-primary drop-shadow hover:scale-[1.05] hover:drop-shadow-primary active:shadow-none active:bg-medium active:scale-[0.9] font-black rounded-full transition-all duration-200"
-                        >
-                          <span className="text-lightMild text-shadow-sm shadow-gray-500 active:shadow-primary">
-                            GITHUB
-                          </span>
-                        </a>
-                      ) : (
-                        <></>
-                      )}
+                      <h1 className="mb-2 font-light text-center">
+                        {project.description}
+                      </h1>
+                      <span className="mb-2 py-1 px-4 font-nunito font-black rounded-full bg-primary text-lightMild text-shadow-sm shadow-gray-500 drop-shadow transition-all duration-200 group-hover:scale-[1.05] group-hover:drop-shadow-primary group-active:scale-[0.9] group-active:bg-medium group-active:shadow-none">
+                        {t("work_view")}
+                      </span>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </SwiperSlide>
             );
@@ -315,6 +199,8 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode }) => {
 CardSlideshow.propTypes = {
   isCurrentSection: PropTypes.bool,
   isDarkMode: PropTypes.bool,
+  category: PropTypes.oneOf(["work", "event"]).isRequired,
+  headingKey: PropTypes.string.isRequired,
 };
 
 export default CardSlideshow;

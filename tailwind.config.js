@@ -12,11 +12,9 @@ export default {
         lg: "0 8px 16px var(--tw-shadow-color)",
       },
       dropShadow: {
-        primary: "0 0 5px #f8958b",
+        primary: "0 0 5px #BF0A30",
       },
       fontFamily: {
-        lato: ["Lato", "sans-serif"],
-        playfair: ["Playfair Display", "serif"],
         nunito: ["Nunito", "sans-serif"],
         nunitoSans: ["Nunito Sans", "sans-serif"],
       },
@@ -39,7 +37,7 @@ export default {
       defaultTheme: {
         extend: {
           colors: {
-            primary: "#f8958b",
+            primary: "#BF0A30",
             primaryContrast: "#3d344d",
             secondary: "#8c95f2",
             accent: "#38c172",
@@ -59,7 +57,10 @@ export default {
           selectors: [".dark-mode"],
           extend: {
             colors: {
-              primary: "#f8958b",
+              // Lighter shade of the light-theme #BF0A30 so the red stays
+              // legible on the near-black dark background (pure #BF0A30 there
+              // is only ~2.6:1 contrast).
+              primary: "#E63946",
               primaryContrast: "#3d344d",
               secondary: "#34cba5",
               accent: "#14b8a6",

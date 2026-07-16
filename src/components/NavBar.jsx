@@ -3,7 +3,9 @@ import { useTranslation } from "react-i18next";
 
 const Navbar = ({ sections, currentSectionIndex, scrollToSection }) => {
   const { t } = useTranslation();
-  const isCol = currentSectionIndex !== 1;
+  // The Work (1) and Events (2) carousels collapse the nav into a compact,
+  // unlabeled dot cluster; content sections show the labeled vertical menu.
+  const isCol = currentSectionIndex !== 1 && currentSectionIndex !== 2;
   return (
     <nav className="fixed top-4 left-6 flex flex-wrap flex-row w-[72px] sm:w-[88px] gap-2 transition-transform duration-1000  origin-center ">
       {sections.map((section, index) => {
@@ -18,6 +20,8 @@ const Navbar = ({ sections, currentSectionIndex, scrollToSection }) => {
               return "translate-y-10 sm:translate-y-12";
             case 3:
               return "-translate-x-10 translate-y-20 sm:translate-y-24";
+            case 4:
+              return "translate-y-20 sm:translate-y-24";
             default:
               return "";
           }

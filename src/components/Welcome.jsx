@@ -1,7 +1,6 @@
 import { Tilt } from "react-tilt";
 import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import i18n from "../lib/i18n";
 import { useTranslation } from "react-i18next";
 
 const Welcome = ({ isCurrentSection, isDarkMode }) => {
@@ -12,130 +11,125 @@ const Welcome = ({ isCurrentSection, isDarkMode }) => {
   const [showScrollDownIcon, setShowScrollDownIcon] = useState(false);
   const timeoutId = useRef(null);
   const { t } = useTranslation();
-  const currentLanguage = i18n.language;
 
   const hoverContent = {
-    ruizterce: (
+    Ahmed: (
       <div className="max-w-[350px] flex flex-col items-center gap-4">
         <img
-          src="img/avatar2.jpeg"
-          alt="Author's portrait"
-          className="h-auto"
+          src="/img/portrait.webp"
+          alt="Ahmed Sinan Hayder at Informatik Festival 2025"
+          className="h-auto rounded-xl"
         />
         <h1>{t("welcome_bio")}</h1>
       </div>
     ),
-    "Full Stack Dev": (
+    "Software Engineer": (
       <div className="grid grid-cols-3 gap-4">
         <img
-          src="/portfolio/icons/git-plain-wordmark.svg"
-          alt="Git"
-          className="h-16 w-auto"
-        />
-        <img
-          src="/portfolio/icons/html5-plain-wordmark.svg"
-          alt="HTML5"
-          className="h-16 w-auto"
-        />
-        <img
-          src="/portfolio/icons/css3-plain-wordmark.svg"
-          alt="CSS3"
-          className="h-16 w-auto"
-        />
-        <img
-          src="/portfolio/icons/javascript-plain.svg"
+          src="/icons/javascript-plain.svg"
           alt="JavaScript"
           className="h-16 w-auto"
         />
         <img
-          src="/portfolio/icons/typescript-plain.svg"
+          src="/icons/typescript-plain.svg"
           alt="TypeScript"
           className="h-16 w-auto"
         />
         <img
-          src="/portfolio/icons/vitejs-plain.svg"
-          alt="Vite"
-          className="h-16 w-auto darkTheme:invert"
-        />
-        <img
-          src="/portfolio/icons/ionic-original-wordmark.svg"
-          alt="Ionic"
+          src="/icons/python-original.svg"
+          alt="Python"
           className="h-16 w-auto"
         />
+        <img src="/icons/php-original.svg" alt="PHP" className="h-16 w-auto" />
         <img
-          src="/portfolio/icons/react-original-wordmark.svg"
+          src="/icons/react-original-wordmark.svg"
           alt="React"
           className="h-16 w-auto"
         />
         <img
-          src="/portfolio/icons/redux-original.svg"
-          alt="Redux"
+          src="/icons/vuejs-original.svg"
+          alt="Vue.js"
           className="h-16 w-auto"
         />
         <img
-          src="/portfolio/icons/nextjs-original-wordmark.svg"
+          src="/icons/nextjs-original-wordmark.svg"
           alt="Next.js"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/portfolio/icons/express-original-wordmark.svg"
-          alt="Express"
+          src="/icons/astro-original.svg"
+          alt="Astro"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/portfolio/icons/amazonwebservices-original-wordmark.svg"
-          alt="AWS"
-          className="h-16 w-auto darkTheme:invert"
-        />
-        <img
-          src="/portfolio/icons/nodejs-plain-wordmark.svg"
-          alt="Node.js"
+          src="/icons/laravel-original.svg"
+          alt="Laravel"
           className="h-16 w-auto"
         />
         <img
-          src="/portfolio/icons/postgresql-original-wordmark.svg"
-          alt="PostgreSQL"
-          className="h-16 w-auto darkTheme:invert"
-        />
-        <img
-          src="/portfolio/icons/dynamodb-original.svg"
-          alt="DynamoDB"
+          src="/icons/materialui-plain.svg"
+          alt="MUI"
           className="h-16 w-auto"
         />
         <img
-          src="/portfolio/icons/prisma-original-wordmark.svg"
-          alt="Prisma"
+          src="/icons/vitejs-plain.svg"
+          alt="Vite"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/portfolio/icons/tailwindcss-plain-wordmark.svg"
+          src="/icons/tailwindcss-plain-wordmark.svg"
           alt="TailwindCSS"
           className="h-16 w-auto darkTheme:invert"
         />
         <img
-          src="/portfolio/icons/postman-plain-wordmark.svg"
+          src="/icons/docker-original.svg"
+          alt="Docker"
+          className="h-16 w-auto"
+        />
+        <img
+          src="/icons/mysql-original.svg"
+          alt="MySQL"
+          className="h-16 w-auto darkTheme:invert"
+        />
+        <img
+          src="/icons/postgresql-original-wordmark.svg"
+          alt="PostgreSQL"
+          className="h-16 w-auto darkTheme:invert"
+        />
+        <img
+          src="/icons/git-plain-wordmark.svg"
+          alt="Git"
+          className="h-16 w-auto"
+        />
+        <img
+          src="/icons/postman-plain-wordmark.svg"
           alt="Postman"
           className="h-16 w-auto"
         />
       </div>
     ),
-    Barcelona: (
-      <img
-        src={`${
-          isDarkMode
-            ? "img/pexels-omar-ramadan-1739260-12951693.jpg"
-            : "img/pexels-apasaric-1388030.jpg"
-        }`}
-        alt="Sagrada Familia"
-        className="h-100 w-auto rounded-xl"
-      />
+    Mosul: (
+      <div className="max-w-[350px] flex flex-col items-center gap-4">
+        <img
+          src={`${
+            isDarkMode ? "/img/ziggurat-dusk.webp" : "/img/marsh-fieldwork.webp"
+          }`}
+          alt={
+            isDarkMode
+              ? "The Great Ziggurat of Ur at dusk"
+              : "Fieldwork in the Iraqi Marshes"
+          }
+          className="h-auto w-full rounded-xl"
+        />
+        <h1>{t("welcome_mosul_caption")}</h1>
+      </div>
     ),
   };
 
   // Hoverable words animation
   useEffect(() => {
     if (hoveredWord) return;
-    const words = ["ruizterce", "Full Stack Dev", "Barcelona"];
+    const words = ["Ahmed", "Software Engineer", "Mosul"];
     let isMounted = true;
 
     const animateWords = () => {
@@ -234,95 +228,48 @@ const Welcome = ({ isCurrentSection, isDarkMode }) => {
             <h1 className="text-4xl font-nunito font-black text-secondary leading-[2em] transition-all duration-700 ease-in-out">
               {t("welcome_title")}
             </h1>
-            <span
-              className={`text-2xl font-nunitoSans font-thin text-center leading-[0.3em] ${
-                currentLanguage === "en"
-                  ? "tracking-[0.05em]"
-                  : "tracking-[0.15em] relative right-[2px]"
-              }`}
-            >
+            <span className="text-2xl font-nunitoSans font-thin text-center tracking-[0.05em] leading-[0.3em]">
               {t("welcome_p_1")}{" "}
             </span>
             <span
-              className={`text-4xl font-nunito font-black text-primary text-justify leading-[0.3em] drop-shadow hover:drop-shadow-primary hover:scale-[1.05] inline-block transition-all duration-[600ms] ease-in-out ${
-                activeWord === "ruizterce"
-                  ? "drop-shadow-primary scale-[1.05]"
-                  : ""
-              } ${
-                currentLanguage === "en"
-                  ? "tracking-[0.02em]"
-                  : "tracking-[0.08em]"
+              className={`text-4xl font-nunito font-black text-primary text-justify drop-shadow hover:drop-shadow-primary hover:scale-[1.05] inline-block transition-all duration-[600ms] ease-in-out tracking-[0.02em] leading-[0.3em] ${
+                activeWord === "Ahmed" ? "drop-shadow-primary scale-[1.05]" : ""
               } ${isCurrentSection ? "" : "translate-x-[1000px]"}`}
-              onMouseEnter={(e) => handleMouseEnter("ruizterce", e)}
+              onMouseEnter={(e) => handleMouseEnter("Ahmed", e)}
               onMouseLeave={handleMouseLeave}
             >
-              ruizterce
+              {t("welcome_name")}
             </span>
             <br />
-            <span
-              className={`font-nunitoSans  font-thin text-[1.4em]  leading-[1.1em] ${
-                currentLanguage === "en"
-                  ? "tracking-[0.155em]"
-                  : "tracking-[0.18em]"
-              }`}
-            >
+            <span className="font-nunitoSans font-thin text-[1.4em] leading-[1.1em] tracking-[0.155em]">
               {t("welcome_p_2")}
             </span>
             <br />
             <p
-              className={`w-max text-4xl font-nunito font-extrabold text-primary tracking-[0.1em] leading-[1em] drop-shadow hover:drop-shadow-primary hover:scale-[1.05] block transition-all duration-700 ease-in-out ${
-                activeWord === "Full Stack Dev"
+              className={`w-max text-4xl font-nunito font-extrabold text-primary drop-shadow hover:drop-shadow-primary hover:scale-[1.05] block transition-all duration-700 ease-in-out tracking-[0.1em] leading-[1em] ${
+                activeWord === "Software Engineer"
                   ? "drop-shadow-primary scale-[1.05]"
                   : ""
               } ${isCurrentSection ? "" : "-translate-x-[1000px]"}`}
-              onMouseEnter={(e) => handleMouseEnter("Full Stack Dev", e)}
+              onMouseEnter={(e) => handleMouseEnter("Software Engineer", e)}
               onMouseLeave={handleMouseLeave}
             >
-              <span
-                className={`${
-                  currentLanguage === "en"
-                    ? "tracking-[0.1em]"
-                    : "tracking-[0.001em] relative right-[3px]"
-                }`}
-              >
-                {t("welcome_p_3")}
-              </span>
+              <span className="tracking-[0.1em]">{t("welcome_p_3")}</span>
               <br />
-              <span
-                className={`${
-                  currentLanguage === "en"
-                    ? "tracking-[0.1em]"
-                    : "tracking-[0.21em] relative left-[1px]"
-                }`}
-              >
-                {t("welcome_p_4")}
-              </span>
+              <span className="tracking-[0.1em]">{t("welcome_p_4")}</span>
             </p>
-            <span
-              className={`font-nunitoSans font-thin text-[1.4em] relative top-[1px]  ${
-                currentLanguage === "en"
-                  ? " tracking-[0.096em] leading-[1em]"
-                  : "tracking-[0.17em] left-[1px] "
-              }`}
-            >
+            <span className="font-nunitoSans font-thin text-[1.4em] relative top-[1px] tracking-[0.096em] leading-[1em]">
               {t("welcome_p_5")}
             </span>
             <br />
             <span
-              className={`text-4xl font-nunito font-black text-primary drop-shadow hover:drop-shadow-primary hover:scale-[1.05] block transition-all duration-[900ms] ease-in-out ${
-                activeWord === "Barcelona"
-                  ? "drop-shadow-primary scale-[1.05]"
-                  : ""
-              } ${
-                currentLanguage === "en"
-                  ? "tracking-[0.11em]"
-                  : "tracking-[0.23em] relative left-[1px]"
-              }
-              ${isCurrentSection ? "" : "translate-x-[1000px]"}`}
-              onMouseEnter={(e) => handleMouseEnter("Barcelona", e)}
+              className={`text-4xl font-nunito font-black text-primary drop-shadow hover:drop-shadow-primary hover:scale-[1.05] block transition-all duration-[900ms] ease-in-out tracking-[0.11em] ${
+                activeWord === "Mosul" ? "drop-shadow-primary scale-[1.05]" : ""
+              } ${isCurrentSection ? "" : "translate-x-[1000px]"}`}
+              onMouseEnter={(e) => handleMouseEnter("Mosul", e)}
               onMouseLeave={handleMouseLeave}
             >
-              Barcelona
+              {t("welcome_city")}
             </span>
           </div>
         </div>
@@ -337,8 +284,8 @@ const Welcome = ({ isCurrentSection, isDarkMode }) => {
         <img
           src={`${
             window.innerWidth <= 768
-              ? "/portfolio/icons/swipe_vertical.svg"
-              : "/portfolio/icons/scroll-down.svg"
+              ? "/icons/swipe_vertical.svg"
+              : "/icons/scroll-down.svg"
           }`}
           alt="Scroll down"
           className="w-16 md:w-10 h-auto"

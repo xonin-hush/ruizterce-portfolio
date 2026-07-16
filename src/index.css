@@ -35,6 +35,12 @@ body {
   cursor: none;
 }
 
+/* The landing page hijacks the wheel to drive its sections, so scrolling stays
+   off by default. Long-form routes (work detail) opt back in. */
+body.page-scroll {
+  overflow-y: auto;
+}
+
 @keyframes pulse-opacity {
   0%,
   100% {
@@ -108,162 +114,6 @@ label {
   }
 }
 /* Fonts */
-
-/* Lato */
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-BlackItalic.ttf") format("truetype");
-  font-weight: 900;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-LightItalic.ttf") format("truetype");
-  font-weight: 300;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-Thin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Lato";
-  src: url("/fonts/Lato-ThinItalic.ttf") format("truetype");
-  font-weight: 100;
-  font-style: italic;
-}
-
-/* Playfair Display */
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-BlackItalic.ttf") format("truetype");
-  font-weight: 900;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-ExtraBold.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-ExtraBoldItalic.ttf") format("truetype");
-  font-weight: 800;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-BoldItalic.ttf") format("truetype");
-  font-weight: 700;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-SemiBoldItalic.ttf") format("truetype");
-  font-weight: 600;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-MediumItalic.ttf") format("truetype");
-  font-weight: 500;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-}
 
 /* Nunito */
 
