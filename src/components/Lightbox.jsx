@@ -62,9 +62,6 @@ const Lightbox = ({ images, index, onClose, onNavigate }) => {
           alt={image.alt}
           className="min-h-0 max-w-full flex-1 rounded-2xl object-contain shadow-2xl"
         />
-        <figcaption className="max-w-2xl shrink-0 text-center font-nunitoSans text-sm font-light text-white/70">
-          {image.alt}
-        </figcaption>
       </figure>
 
       {!isSingle && (

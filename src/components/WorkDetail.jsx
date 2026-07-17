@@ -42,10 +42,19 @@ const WorkDetail = () => {
   const prev = siblings[(index - 1 + siblings.length) % siblings.length];
   const next = siblings[(index + 1) % siblings.length];
 
+  // Photos carry no baked-in captions; name them neutrally by position so the
+  // hero, thumbnail buttons, and lightbox all have accessible labels.
+  const galleryAlt = (i) => `${study.title} — image ${i + 1}`;
+
   // The hero photo leads the lightbox set; diagrams are illustrations, not photos,
   // so they stay out of it.
-  const lightboxImages = study.hero ? [study.hero, ...study.gallery] : study.gallery;
   const galleryOffset = study.hero ? 1 : 0;
+  const lightboxImages = (study.hero ? [study.hero, ...study.gallery] : study.gallery).map(
+    (image, i) => ({
+      ...image,
+      alt: study.hero ? (i === 0 ? study.title : galleryAlt(i - 1)) : galleryAlt(i),
+    })
+  );
 
   const diagramSrc = `/img/diagram-${study.diagram}-${isDarkMode ? "d" : "l"}.svg`;
 
@@ -120,7 +129,7 @@ const WorkDetail = () => {
           >
             <img
               src={study.hero.src}
-              alt={study.hero.alt}
+              alt={study.title}
               style={{ objectPosition: study.hero.objectPosition }}
               className="h-[240px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] sm:h-[420px]"
             />
@@ -154,11 +163,11 @@ const WorkDetail = () => {
                   key={image.src}
                   type="button"
                   onClick={() => setLightboxIndex(i + galleryOffset)}
-                  aria-label={image.alt}
+                  aria-label={galleryAlt(i)}
                   className="group aspect-[4/3] overflow-hidden rounded-2xl bg-lightMild"
                 >
                   {/* alt is empty because the button's aria-label already
-                      carries this image's description. */}
+                      carries this image's label. */}
                   <img
                     src={image.thumb}
                     alt=""

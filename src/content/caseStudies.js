@@ -9,10 +9,9 @@
  * has no product screenshots in the repo.
  */
 
-const photo = (slug, name, alt, objectPosition) => ({
+const photo = (slug, name, objectPosition) => ({
   src: `/img/work/${slug}/${name}.webp`,
   thumb: `/img/work/${slug}/${name}-thumb.webp`,
-  alt,
   objectPosition,
 });
 
@@ -21,7 +20,7 @@ const photo = (slug, name, alt, objectPosition) => ({
  * `fit: "contain"` letterboxes them in the grid so the whole frame survives
  * instead of being cropped to an unreadable band.
  */
-const shot = (slug, name, alt) => ({ ...photo(slug, name, alt), fit: "contain" });
+const shot = (slug, name) => ({ ...photo(slug, name), fit: "contain" });
 
 export const caseStudies = [
   {
@@ -56,12 +55,10 @@ export const caseStudies = [
       photo(
         "scanner-bridge",
         "team-anniversary",
-        "R&D colleagues in front of the Aswar 'since 1986' 40th-anniversary sign with an illuminated 40 logo"
       ),
       photo(
         "scanner-bridge",
         "team-celebration",
-        "Colleagues in formal attire in front of the Aswar Group 40th Anniversary backdrop with English and Arabic branding"
       ),
     ],
   },
@@ -80,7 +77,6 @@ export const caseStudies = [
     hero: photo(
       "heritage-iraq",
       "map-overview",
-      "The 3D map of Iraq in the Modern Iraq era: white heritage-site models along the Tigris and Euphrates, framed by the About panel, sites list, and era timeline"
     ),
     problem: [
       "Iraq's heritage usually reaches the world as static photos and scattered articles — formats that flatten five millennia into something you scroll past. After a year of heritage work with universities and centers, I wanted to build the missing front door: one place to see where these sites stand, when they mattered, and what it feels like to walk them.",
@@ -101,17 +97,14 @@ export const caseStudies = [
       shot(
         "heritage-iraq",
         "timeline-sumerian",
-        "The Sumerian era selected on the timeline, its info card describing the birth of the world's first cities as clouds part over the 3D map"
       ),
       shot(
         "heritage-iraq",
         "site-detail",
-        "The Al-Hadba Minaret site panel with links to the external website and virtual walkthrough, plus visitor comments, open over the map"
       ),
       shot(
         "heritage-iraq",
         "mobile-map",
-        "The experience at phone width: heritage site cards and the era timeline stacked over the 3D map"
       ),
     ],
   },
@@ -148,32 +141,26 @@ export const caseStudies = [
       shot(
         "discover-mosul",
         "landing-hero",
-        "The Al-Noor Center landing page hero: navigation bar, the headline 'Al-Noor Center for the Preservation of Cultural Heritage', and a blue 'Get in Touch' call to action"
       ),
       shot(
         "discover-mosul",
         "values-section",
-        "The Our Values section pairing five illustrated principles — innovative research, public awareness, community engagement, protection, future generations — with a photo of the center's Mosul storefront"
       ),
       shot(
         "discover-mosul",
         "our-work",
-        "The Our Work section laying out three pillars in columns: advanced digital documentation, AI-powered restoration, and community education"
       ),
       shot(
         "discover-mosul",
         "news-announcements",
-        "The Latest News and Announcements section showing a CMS-published featured post about the AI Art Gallery exhibition, with View Gallery and Watch Videos buttons"
       ),
       shot(
         "discover-mosul",
         "dark-theme",
-        "The same landing page hero rendered in the site's dark theme, with light type on a deep navy background"
       ),
       shot(
         "discover-mosul",
         "mobile-responsive",
-        "The landing page at phone width: the navigation collapses to a hamburger menu and the hero headline and call to action stack in a single column"
       ),
     ],
   },
@@ -191,7 +178,6 @@ export const caseStudies = [
     hero: photo(
       "marshes-3d",
       "hero-boat-capture",
-      "Ahmed smiling on a wooden boat in the Iraqi Marshes, holding a carbon-fiber 360-camera pole with reed beds and a water channel behind him"
     ),
     problem: [
       "The Iraqi Marshes — a UNESCO World Heritage Site often called the cradle of civilization's wetlands — face environmental pressure that makes systematic digital documentation urgent. An international, multi-university project set out to capture them before change outpaces the record.",
@@ -212,37 +198,30 @@ export const caseStudies = [
       photo(
         "marshes-3d",
         "project-kickoff",
-        "Students and German professors at the University of Thi-Qar under a screen showing UNESCO, DAAD, and Brandenburg University logos"
       ),
       photo(
         "marshes-3d",
         "boat-thumbs-up",
-        "Team member giving a thumbs-up from the marsh boat while holding the camera pole, boat wake and reed banks visible"
       ),
       photo(
         "marshes-3d",
         "ur-ziggurat-group",
-        "The fieldwork team posing at the foot of the Great Ziggurat of Ur, its restored brick staircase rising steeply behind them"
       ),
       photo(
         "marshes-3d",
         "thiqar-stage-group",
-        "Faculty and students on stage in front of a 'University of Thi-Qar' backdrop, an Iraqi flag and DAAD banner beside them"
       ),
       photo(
         "marshes-3d",
         "mosul-team-seated",
-        "University of Mosul delegation seated in a blue-seat auditorium, a reserved 'University of Mosul' placard in Arabic on a chair"
       ),
       photo(
         "marshes-3d",
         "seminar-audience",
-        "Students listening in a blue-seat auditorium, two in the front row wearing checkered keffiyeh scarves, a film camera behind"
       ),
       photo(
         "marshes-3d",
         "candid-laptop-smile",
-        "Ahmed smiling in a navy bomber jacket, leaning over a wooden table beside a laptop indoors"
       ),
     ],
   },
@@ -260,7 +239,6 @@ export const caseStudies = [
     hero: photo(
       "brandenburg-scan",
       "hero-360-cloister",
-      "Team member raising a 360-degree camera on an extended monopod to capture the arched red-brick cloister courtyard of a Gothic monastery",
       "center 70%"
     ),
     problem: [
@@ -280,77 +258,62 @@ export const caseStudies = [
       photo(
         "brandenburg-scan",
         "data-processing",
-        "Participant working on a laptop showing a 3D data-processing interface, a teammate working in the background"
       ),
       photo(
         "brandenburg-scan",
         "seminar-room",
-        "International students seated in a timber-beamed university seminar room during a 3D documentation training session"
       ),
       photo(
         "brandenburg-scan",
         "walkthrough-slide",
-        "Students presenting a 'Courtyard Walkthrough' slide with an aerial 3D rendering of a historic building on the projector screen"
       ),
       photo(
         "brandenburg-scan",
         "team-presentation",
-        "Three students presenting their project results at a lectern in the seminar room"
       ),
       photo(
         "brandenburg-scan",
         "brandenburg-old-town",
-        "Student team outside a Gothic red-brick church in the historic center of Brandenburg an der Havel"
       ),
       photo(
         "brandenburg-scan",
         "project-team",
-        "The international project-week team posed on a stone terrace among bare winter trees"
       ),
       photo(
         "brandenburg-scan",
         "graduation-group-photo",
-        "About forty participants posing on stone steps outside a villa, a graduate in a navy gown and cap at the centre"
       ),
       photo(
         "brandenburg-scan",
         "team-dinner",
-        "The project group gathered around a long red-clothed table laden with pizza and pasta at an Italian restaurant"
       ),
       photo(
         "brandenburg-scan",
         "reception-attendees",
-        "Five students in winter clothing seated against a gold-striped wall beneath a crystal chandelier in a wood-panelled reception room"
       ),
       photo(
         "brandenburg-scan",
         "team-mirror-selfie",
-        "The project team crowding into a mirror for a festive group selfie, one member in a reindeer hat, toy reindeer figurines on the table"
       ),
       photo(
         "brandenburg-scan",
         "santa-hat-selfie",
-        "Two team members grinning for a close-up winter selfie among bare trees, one wearing a Santa hat"
       ),
       photo(
         "brandenburg-scan",
         "chandelier-duo",
-        "Two team members in an ornate curtained lounge with a lit crystal chandelier, one wearing a Santa hat"
       ),
       photo(
         "brandenburg-scan",
         "santa-hat-portrait",
-        "Two team members in dark suits talking beneath a crystal chandelier in an elegant lounge, one wearing a Santa hat"
       ),
       photo(
         "brandenburg-scan",
         "misty-park-walk",
-        "Silhouetted figures walking a lamplit footpath through bare trees on a misty winter night"
       ),
       photo(
         "brandenburg-scan",
         "foggy-night-path",
-        "A paved footpath curving past bare trees and a glowing streetlamp on a foggy winter night beside an apartment block"
       ),
     ],
   },
@@ -368,7 +331,6 @@ export const caseStudies = [
     hero: photo(
       "vr-gallery-potsdam",
       "hero-vr-gallery",
-      "Team members holding Meta Quest VR headsets beside the Mosul Heritage VR Gallery poster at the exhibition"
     ),
     problem: [
       "How do you make ancient Iraqi life feel present to an audience in Potsdam? The Digitalisation of Cultural Heritage workshop at GI-Festival 2025 (INFORMATIK 2025) was the stage — the challenge was building an experience, not a slideshow.",
@@ -387,87 +349,70 @@ export const caseStudies = [
       photo(
         "vr-gallery-potsdam",
         "festival-stage-group",
-        "Workshop participants on stage in front of the Informatik Festival 2025 backdrop at the University of Potsdam"
       ),
       photo(
         "vr-gallery-potsdam",
         "ilgamesh-demo",
-        "Team lined up in the demo room beside a projected ILGAMESH title screen, with laptop, projector, and VR headset on the demo table"
       ),
       photo(
         "vr-gallery-potsdam",
         "gallery-corridor",
-        "Team along the exhibition corridor around the Mosul Heritage VR Gallery poster, framed heritage artwork on the wall and VR headsets on a side table"
       ),
       photo(
         "vr-gallery-potsdam",
         "workshop-prep",
-        "Collaborators preparing exhibition material in a sunlit workshop room — one at a laptop, one unwrapping a canvas artwork"
       ),
       photo(
         "vr-gallery-potsdam",
         "closing-session",
-        "Full group of workshop participants on the festival stage under a Digitalisation of Cultural Heritage slide"
       ),
       photo(
         "vr-gallery-potsdam",
         "festival-portrait",
-        "Ahmed in a suit giving two thumbs-up in front of the Informatik Festival 2025 stage backdrop"
       ),
       photo(
         "vr-gallery-potsdam",
         "signed-badge",
-        "Informatik Festival 2025 badge reading 'Ahmed Sinan Hayder, University of Mosul', covered in signatures and notes, resting on a laptop keyboard"
       ),
       photo(
         "vr-gallery-potsdam",
         "mosul-vr-poster-team",
-        "Team members holding white VR headsets beside the 'Mosul Heritage VR Gallery' poster at the Informatik Festival 2025 exhibition booth"
       ),
       photo(
         "vr-gallery-potsdam",
         "vr-booth-lineup",
-        "Team lined up along the exhibition wall by the 'Mosul Heritage VR Gallery' poster, two VR headsets on a side table"
       ),
       photo(
         "vr-gallery-potsdam",
         "soon-demo-room",
-        "Team in a demo room where a screen reads 'SOON..', one member wearing a VR headset pushed up on his forehead"
       ),
       photo(
         "vr-gallery-potsdam",
         "auditorium-group-backdrop",
-        "A large group posing on stage in a lecture hall before the Informatik Festival 2025 backdrop, empty auditorium seats in the foreground"
       ),
       photo(
         "vr-gallery-potsdam",
         "lobby-lanyard-trio",
-        "Three attendees wearing festival lanyards smiling in a busy conference hall lobby, one giving a thumbs-up"
       ),
       photo(
         "vr-gallery-potsdam",
         "reichstag-group",
-        "The team posing in front of the Reichstag building in Berlin, its 'Dem Deutschen Volke' inscription and flags visible"
       ),
       photo(
         "vr-gallery-potsdam",
         "brandenburg-gate-group",
-        "Team members gathered for a group photo beneath the columns of the Brandenburg Gate in Berlin on an overcast day"
       ),
       photo(
         "vr-gallery-potsdam",
         "gothic-brick-church",
-        "Two team members before a Gothic brick church with pointed-arch doorways and ornate tracery windows, one looking upward"
       ),
       photo(
         "vr-gallery-potsdam",
         "campus-portrait",
-        "Ahmed leaning on a metal railing on a green lawn, a historic brick building behind him"
       ),
       photo(
         "vr-gallery-potsdam",
         "station-platform",
-        "Ahmed in a black leather jacket on a German railway platform, train tracks and an overhead bridge behind him"
       ),
     ],
   },
