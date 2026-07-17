@@ -198,9 +198,6 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
                       <h1 className="mb-2 font-light text-center">
                         {project.description}
                       </h1>
-                      <span className="mb-2 py-1 px-4 font-nunito font-black rounded-full bg-primary text-lightMild text-shadow-sm shadow-gray-500 drop-shadow transition-all duration-200 group-hover:scale-[1.05] group-hover:drop-shadow-primary group-active:scale-[0.9] group-active:bg-medium group-active:shadow-none">
-                        {t("work_view")}
-                      </span>
                     </div>
                   </Link>
                 </div>
