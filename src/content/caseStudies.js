@@ -66,6 +66,56 @@ export const caseStudies = [
     ],
   },
   {
+    slug: "heritage-iraq",
+    category: "work",
+    titleKey: "project_7_t",
+    title: "Heritage Iraq — 3D Interactive Heritage Explorer",
+    tagline:
+      "A browser-based 3D map of Iraq's heritage sites with a six-era timeline and walkable multiplayer worlds — no install, just a link.",
+    role: "Creator & Developer",
+    org: "Personal project",
+    timeframe: "Jan 2026 — Jul 2026",
+    tech: ["TypeScript", "Babylon.js", "Colyseus", "WebSockets", "Vite", "Web Audio API"],
+    liveUrl: "https://heritage.alqaba.com/",
+    hero: photo(
+      "heritage-iraq",
+      "map-overview",
+      "The 3D map of Iraq in the Modern Iraq era: white heritage-site models along the Tigris and Euphrates, framed by the About panel, sites list, and era timeline"
+    ),
+    problem: [
+      "Iraq's heritage usually reaches the world as static photos and scattered articles — formats that flatten five millennia into something you scroll past. After a year of heritage work with universities and centers, I wanted to build the missing front door: one place to see where these sites stand, when they mattered, and what it feels like to walk them.",
+      "And it had to run in a browser tab on any device — no install, no gaming PC, no patience required.",
+    ],
+    myRole: [
+      "Heritage Iraq is my personal project, built end to end: the 3D map, the era timeline, the multiplayer worlds, and the performance work that keeps it all smooth. A collaborator prototyped an experimental AI tour guide along the way; the core experience — from first commit to production deploy — is mine.",
+    ],
+    approach: [
+      "The centerpiece is a Babylon.js map of Iraq with fourteen heritage sites — from the Ziggurat of Ur to Mosul's Al-Hadba Minaret — each placed as its own 3D model along the Tigris and Euphrates. A draggable timeline moves through six eras, from Sumerian to modern Iraq: sites appear in their period, an era card carries the history, and a GPU-particle cloud storm sweeps the map between eras, scored by a wind whoosh synthesized live in the Web Audio API — no audio files anywhere in the project.",
+      "Select sites open into first-person walkable worlds with a hand-rolled character controller: collisions, gravity, pointer-lock look on desktop, a touch joystick on phones. The worlds are shared — a Colyseus server over WebSockets puts every visitor in the same room, with remote players smoothly interpolated from throttled position updates, floating nameplates, and an emote system. When the server is unreachable, the experience degrades gracefully to solo exploration.",
+      "Keeping a 3D world at full frame rate inside a browser tab meant treating performance as a feature: device-pixel-ratio capped on high-DPI screens, materials and world matrices frozen on the static map, ray picking restricted to site markers, and rendering suspended when the tab is hidden. The best war story: a glTF loader that deadlocked only in production builds — traced to Vite's code splitting and fixed by registering the loader statically.",
+    ],
+    outcome: [
+      "Heritage Iraq is live at heritage.alqaba.com: an explorer where visitors don't just read about Iraq's past — they scrub through it, fly over it, and walk through it together, on anything from a workstation to a phone.",
+    ],
+    gallery: [
+      shot(
+        "heritage-iraq",
+        "timeline-sumerian",
+        "The Sumerian era selected on the timeline, its info card describing the birth of the world's first cities as clouds part over the 3D map"
+      ),
+      shot(
+        "heritage-iraq",
+        "site-detail",
+        "The Al-Hadba Minaret site panel with links to the external website and virtual walkthrough, plus visitor comments, open over the map"
+      ),
+      shot(
+        "heritage-iraq",
+        "mobile-map",
+        "The experience at phone width: heritage site cards and the era timeline stacked over the 3D map"
+      ),
+    ],
+  },
+  {
     slug: "discover-mosul",
     category: "work",
     titleKey: "project_2_t",

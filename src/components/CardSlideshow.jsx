@@ -35,6 +35,23 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
       description: t("project_1_d"),
     },
     {
+      slug: "heritage-iraq",
+      title: t("project_7_t"),
+      imgUrl: "/img/heritage-iraq-map.webp",
+      chips: (
+        <>
+          <Chip
+            icon="/icons/typescript-original.svg"
+            text="TypeScript"
+            bgColor="light"
+          />
+          <Chip text="Babylon.js" bgColor="light" />
+          <Chip text="Colyseus" bgColor="light" />
+        </>
+      ),
+      description: t("project_7_d"),
+    },
+    {
       slug: "discover-mosul",
       title: t("project_2_t"),
       imgUrl: `/img/diagram-discover-mosul-${isDarkMode ? "d" : "l"}.svg`,
