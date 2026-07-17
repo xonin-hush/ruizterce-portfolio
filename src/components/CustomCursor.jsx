@@ -83,7 +83,7 @@ const CustomCursor = () => {
           left: cursorPosition.x,
           top: cursorPosition.y,
         }}
-        className={`custom-cursor fixed z-[990] -translate-x-1/2 -translate-y-1/2 h-6 w-6 rounded-full transition-transform duration-700 ease-out origin-center ${
+        className={`custom-cursor fixed z-[1100] -translate-x-1/2 -translate-y-1/2 h-6 w-6 rounded-full transition-transform duration-700 ease-out origin-center ${
           isMouseMoving ? "scale-75" : ""
         }`}
       />
