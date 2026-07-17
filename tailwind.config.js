@@ -14,9 +14,13 @@ export default {
       dropShadow: {
         primary: "0 0 5px #BF0A30",
       },
+      // Fonts borrowed from the main Portfolio repo: Space Grotesk (display,
+      // via the existing `nunito` key) and Inter (body, via `nunitoSans`),
+      // loaded from Google Fonts in index.html. Class names kept so no
+      // component markup has to change.
       fontFamily: {
-        nunito: ["Nunito", "sans-serif"],
-        nunitoSans: ["Nunito Sans", "sans-serif"],
+        nunito: ["Space Grotesk", "sans-serif"],
+        nunitoSans: ["Inter", "sans-serif"],
       },
       animation: {
         orbit: "orbit 7s linear infinite",
