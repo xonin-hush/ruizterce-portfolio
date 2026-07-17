@@ -126,7 +126,7 @@ export const caseStudies = [
     org: "Al-Noor University Center for the Preservation of Cultural Heritage",
     timeframe: "Jan 2025 — Jun 2025",
     tech: ["Astro", "Laravel", "Filament", "Role-based auth", "Tidio AI chat"],
-    liveUrl: "https://center.alnoor.edu.iq/en",
+    liveUrl: "https://center.alnoor.edu.iq",
     diagram: "discover-mosul",
     problem: [
       "Mosul's heritage deserves a modern digital front door. The Alnoor Center needed two different things: a public page that presents the center to the world, and a way for its own staff to keep the Discover Mosul mobile app stocked with heritage sites and content — without a developer in the loop every time something changed.",
