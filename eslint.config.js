@@ -5,7 +5,9 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
-  { ignores: ['dist'] },
+  // 'public/doom' holds the vendored, minified js-dos engine for the DOOM
+  // easter egg — third-party build output, not part of the app source.
+  { ignores: ['dist', 'public/doom'] },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
