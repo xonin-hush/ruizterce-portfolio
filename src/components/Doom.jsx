@@ -41,37 +41,40 @@ const Doom = ({ onClose }) => {
   const overlayRef = useRef(null);
   const [status, setStatus] = useState("loading");
 
-  // Boot the emulator once. The `cancelled` guard + stop() cover React 18
-  // StrictMode's mount/unmount/mount so no orphan emulator is ever left running.
+  // Boot the emulator once. React 18 StrictMode mounts effects twice in dev
+  // (setup → cleanup → setup); deferring the boot by a tick lets the throwaway
+  // first pass cancel before js-dos starts loading, so we never double-init the
+  // emulator. A double-init races js-dos's lazy emulators.js load and throws
+  // "emulators is not defined". In production (single mount) it boots straight.
   useEffect(() => {
-    let cancelled = false;
-    loadJsDos()
-      .then(() => {
-        if (!mountRef.current || !window.Dos) return;
-        const ci = window.Dos(mountRef.current, {
-          url: BUNDLE_URL,
-          pathPrefix: EMULATORS_PATH,
-          backend: "dosbox",
-          autoStart: true,
-          kiosk: true,
-          theme: "dark",
-          noCloud: true,
+    let ci = null;
+    let disposed = false;
+    const timer = setTimeout(() => {
+      loadJsDos()
+        .then(() => {
+          if (disposed || !mountRef.current || !window.Dos) return;
+          ci = window.Dos(mountRef.current, {
+            url: BUNDLE_URL,
+            pathPrefix: EMULATORS_PATH,
+            backend: "dosbox",
+            autoStart: true,
+            kiosk: true,
+            theme: "dark",
+            noCloud: true,
+          });
+          ciRef.current = ci;
+          setStatus("running");
+        })
+        .catch(() => {
+          if (!disposed) setStatus("error");
         });
-        if (cancelled) {
-          ci.stop().catch(() => {});
-          return;
-        }
-        ciRef.current = ci;
-        setStatus("running");
-      })
-      .catch(() => {
-        if (!cancelled) setStatus("error");
-      });
+    }, 0);
     return () => {
-      cancelled = true;
-      const ci = ciRef.current;
+      disposed = true;
+      clearTimeout(timer);
+      const live = ci || ciRef.current;
       ciRef.current = null;
-      if (ci) ci.stop().catch(() => {});
+      if (live) live.stop().catch(() => {});
     };
   }, []);
 
