@@ -9,13 +9,36 @@ import { getCaseStudy } from "../content/caseStudies";
 
 const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) => {
   const { t } = useTranslation();
+
+  // How an image meets its fixed-height card box, in the same `fit` /
+  // `objectPosition` vocabulary the case-study images already use — see the
+  // photo()/shot() pair in src/content/caseStudies.js.
+
+  // Diagrams are authored to a fixed 600x660 viewBox, so cropping one truncates
+  // the architecture it exists to describe: object-cover was slicing the bottom
+  // node off on mobile. They letterbox instead. Their canvas is transparent, so
+  // the letterbox reads as card background rather than as bars.
+  const diagram = (name) => ({
+    imgUrl: `/img/diagram-${name}-${isDarkMode ? "d" : "l"}.svg`,
+    fit: "contain",
+  });
+
+  // Photos fill the box and are cropped to do it. `objectPosition` is the focal
+  // point that crop keeps — only worth setting when the subject would otherwise
+  // fall outside the visible band, so most cards leave it at the default centre.
+  const photo = (file, objectPosition) => ({
+    imgUrl: `/img/${file}`,
+    fit: "cover",
+    objectPosition,
+  });
+
   // `slug` links each card to its case study in src/content/caseStudies.js,
   // which is also where each card's Work/Events category lives.
   const data = [
     {
       slug: "scanner-bridge",
       title: t("project_1_t"),
-      imgUrl: `/img/diagram-scanner-bridge-${isDarkMode ? "d" : "l"}.svg`,
+      ...diagram("scanner-bridge"),
       chips: (
         <>
           <Chip
@@ -37,7 +60,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "heritage-iraq",
       title: t("project_7_t"),
-      imgUrl: "/img/heritage-iraq-map.webp",
+      ...photo("heritage-iraq-map.webp"),
       chips: (
         <>
           <Chip
@@ -54,7 +77,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "discover-mosul",
       title: t("project_2_t"),
-      imgUrl: `/img/diagram-discover-mosul-${isDarkMode ? "d" : "l"}.svg`,
+      ...diagram("discover-mosul"),
       chips: (
         <>
           <Chip
@@ -75,7 +98,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "marshes-3d",
       title: t("project_3_t"),
-      imgUrl: "/img/marshes-boat.webp",
+      ...photo("marshes-boat.webp"),
       chips: (
         <>
           <Chip text="Photogrammetry" bgColor="light" />
@@ -88,7 +111,10 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "brandenburg-scan",
       title: t("project_4_t"),
-      imgUrl: "/img/brandenburg-cloister.webp",
+      // A 1600x2400 portrait: the subject stands low in the frame (rows
+      // ~1570-2165), so a top-anchored crop drops him off the card entirely on
+      // mobile. 85% keeps him and the 360 camera in frame at both breakpoints.
+      ...photo("brandenburg-cloister.webp", "center 85%"),
       chips: (
         <>
           <Chip text="FARO Focus" bgColor="light" />
@@ -101,7 +127,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "vr-gallery-potsdam",
       title: t("project_5_t"),
-      imgUrl: "/img/vr-gallery.webp",
+      ...photo("vr-gallery.webp"),
       chips: (
         <>
           <Chip text="VR" bgColor="light" />
@@ -114,7 +140,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "qaf-testing",
       title: t("project_6_t"),
-      imgUrl: `/img/diagram-qaf-testing-${isDarkMode ? "d" : "l"}.svg`,
+      ...diagram("qaf-testing"),
       chips: (
         <>
           <Chip text="Unit · Integration · E2E" bgColor="light" />
@@ -184,7 +210,12 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
                     <img
                       src={project.imgUrl}
                       alt={project.title}
-                      className="object-cover object-top w-full h-[300px] sm:h-[420px] rounded-t-3xl"
+                      style={{ objectPosition: project.objectPosition }}
+                      className={`w-full h-[300px] sm:h-[420px] rounded-t-3xl ${
+                        project.fit === "contain"
+                          ? "object-contain"
+                          : "object-cover"
+                      }`}
                     ></img>
 
                     <div className="flex flex-wrap justify-center gap-2 mx-2 mt-2 sm:mx-4 sm:mt-4">
