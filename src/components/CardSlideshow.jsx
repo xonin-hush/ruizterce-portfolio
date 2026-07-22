@@ -60,7 +60,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "heritage-iraq",
       title: t("project_7_t"),
-      ...photo("heritage-iraq-map.webp"),
+      ...photo("heritage-iraq.webp"),
       chips: (
         <>
           <Chip
@@ -77,7 +77,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "discover-mosul",
       title: t("project_2_t"),
-      ...diagram("discover-mosul"),
+      ...photo("discover-mosul.webp"),
       chips: (
         <>
           <Chip
