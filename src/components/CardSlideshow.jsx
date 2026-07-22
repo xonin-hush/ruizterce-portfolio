@@ -32,9 +32,9 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     objectPosition,
   });
 
-  // Bespoke portrait cover art (Heritage Iraq, Discover Mosul), authored at the
-  // card's own 2:3 ratio so it fills the frame edge-to-edge with no crop. The
-  // `poster` flag swaps the shared landscape frame for a tall 2:3 one.
+  // Bespoke portrait cover art (Heritage Iraq, Discover Mosul), cropped to the
+  // card's own 4:5 ratio so it fills the frame edge-to-edge with no crop. The
+  // `poster` flag swaps the shared landscape frame for a taller 4:5 one.
   const coverArt = (file) => ({
     imgUrl: `/img/${file}`,
     fit: "cover",
@@ -165,7 +165,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     (card) => getCaseStudy(card.slug)?.category === category
   );
 
-  // Poster cards (2:3) stand taller than the landscape ones, so a carousel that
+  // Poster cards (4:5) stand taller than the landscape ones, so a carousel that
   // contains any needs its heading lifted clear of the tallest card's top edge.
   const hasPoster = cards.some((card) => card.poster);
 
@@ -174,7 +174,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
       <h1
         className={`absolute text-3xl font-nunito font-black text-secondary transition-all duration-700 ease-in-out ${
           hasPoster
-            ? "translate-y-[-330px] sm:translate-y-[-395px]"
+            ? "translate-y-[-300px] sm:translate-y-[-350px]"
             : "translate-y-[-260px] sm:translate-y-[-310px]"
         } ${isCurrentSection ? "" : "-translate-x-[1000px] opacity-0"}`}
       >
@@ -227,7 +227,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
                       alt={project.title}
                       style={{ objectPosition: project.objectPosition }}
                       className={`w-full rounded-t-3xl ${
-                        project.poster ? "aspect-[2/3]" : "h-[300px] sm:h-[420px]"
+                        project.poster ? "aspect-[4/5]" : "h-[300px] sm:h-[420px]"
                       } ${
                         project.fit === "contain"
                           ? "object-contain"
