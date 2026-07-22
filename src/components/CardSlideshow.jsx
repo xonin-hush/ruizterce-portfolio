@@ -32,14 +32,13 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     objectPosition,
   });
 
-  // Bespoke portrait cover art (Heritage Iraq, Discover Mosul) that carries its
-  // own soft-grey misty background. It letterboxes (contain) so the whole
-  // composition stays centred and uncropped, matted to that same grey so the
-  // bars read as the artwork's own background rather than as bars.
+  // Bespoke portrait cover art (Heritage Iraq, Discover Mosul), authored at the
+  // card's own 2:3 ratio so it fills the frame edge-to-edge with no crop. The
+  // `poster` flag swaps the shared landscape frame for a tall 2:3 one.
   const coverArt = (file) => ({
     imgUrl: `/img/${file}`,
-    fit: "contain",
-    matte: "#b9bcbd",
+    fit: "cover",
+    poster: true,
   });
 
   // `slug` links each card to its case study in src/content/caseStudies.js,
@@ -166,12 +165,18 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     (card) => getCaseStudy(card.slug)?.category === category
   );
 
+  // Poster cards (2:3) stand taller than the landscape ones, so a carousel that
+  // contains any needs its heading lifted clear of the tallest card's top edge.
+  const hasPoster = cards.some((card) => card.poster);
+
   return (
     <div className="h-screen w-screen bg-light text-dark flex flex-col items-center justify-center">
       <h1
-        className={`absolute text-3xl font-nunito font-black text-secondary translate-y-[-260px] sm:translate-y-[-310px] transition-all duration-700 ease-in-out ${
-          isCurrentSection ? "" : "-translate-x-[1000px] opacity-0"
-        }`}
+        className={`absolute text-3xl font-nunito font-black text-secondary transition-all duration-700 ease-in-out ${
+          hasPoster
+            ? "translate-y-[-330px] sm:translate-y-[-395px]"
+            : "translate-y-[-260px] sm:translate-y-[-310px]"
+        } ${isCurrentSection ? "" : "-translate-x-[1000px] opacity-0"}`}
       >
         {t(headingKey)}
       </h1>
@@ -220,11 +225,10 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
                     <img
                       src={project.imgUrl}
                       alt={project.title}
-                      style={{
-                        objectPosition: project.objectPosition,
-                        backgroundColor: project.matte,
-                      }}
-                      className={`w-full h-[300px] sm:h-[420px] rounded-t-3xl ${
+                      style={{ objectPosition: project.objectPosition }}
+                      className={`w-full rounded-t-3xl ${
+                        project.poster ? "aspect-[2/3]" : "h-[300px] sm:h-[420px]"
+                      } ${
                         project.fit === "contain"
                           ? "object-contain"
                           : "object-cover"
