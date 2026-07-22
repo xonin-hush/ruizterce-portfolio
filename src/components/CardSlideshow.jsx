@@ -32,6 +32,16 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     objectPosition,
   });
 
+  // Bespoke portrait cover art (Heritage Iraq, Discover Mosul) that carries its
+  // own soft-grey misty background. It letterboxes (contain) so the whole
+  // composition stays centred and uncropped, matted to that same grey so the
+  // bars read as the artwork's own background rather than as bars.
+  const coverArt = (file) => ({
+    imgUrl: `/img/${file}`,
+    fit: "contain",
+    matte: "#b9bcbd",
+  });
+
   // `slug` links each card to its case study in src/content/caseStudies.js,
   // which is also where each card's Work/Events category lives.
   const data = [
@@ -60,7 +70,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "heritage-iraq",
       title: t("project_7_t"),
-      ...photo("heritage-iraq.webp"),
+      ...coverArt("heritage-iraq.webp"),
       chips: (
         <>
           <Chip
@@ -77,7 +87,7 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
     {
       slug: "discover-mosul",
       title: t("project_2_t"),
-      ...photo("discover-mosul.webp"),
+      ...coverArt("discover-mosul.webp"),
       chips: (
         <>
           <Chip
@@ -210,7 +220,10 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
                     <img
                       src={project.imgUrl}
                       alt={project.title}
-                      style={{ objectPosition: project.objectPosition }}
+                      style={{
+                        objectPosition: project.objectPosition,
+                        backgroundColor: project.matte,
+                      }}
                       className={`w-full h-[300px] sm:h-[420px] rounded-t-3xl ${
                         project.fit === "contain"
                           ? "object-contain"
