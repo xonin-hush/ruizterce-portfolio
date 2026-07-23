@@ -186,6 +186,10 @@ const CardSlideshow = ({ isCurrentSection, isDarkMode, category, headingKey }) =
         }`}
       >
         <Swiper
+          // Swiper's root is `overflow: hidden` and hugs the cards' height, so a
+          // card's hover glow (drop-shadow-primary) gets clipped flat at the top
+          // and bottom edges. This vertical padding gives the glow room to show.
+          className="!py-4"
           effect={"coverflow"}
           modules={[EffectCoverflow, Pagination, Mousewheel]}
           // Two-finger trackpad swipe left/right flips through the cards.
